@@ -113,15 +113,6 @@ Assoziative Beziehungen
 | **Closeness** | Schlüssel zu anderen Teilen des Netzwerks | Ego ist über viele (kurze) Pfade erreichbar und zentral, aber andere sind ebenfalls gut angebunden | Viele Pfade, zentrale Position, aber nicht exklusiv |
 | **Betweenness** | Zentrale Schnittstelle für Informationsfluss | Wenige direkte Verbindungen, aber entscheidend für die Verbindung verschiedener Gruppen | Selten: Bündelung der Beziehungen weniger Knoten zu allen anderen |
 
-::: notes
-**Sprecher*innen-Notizen:**
-
-- *Degree*: Hervorheben, dass ein "Local hero" viele Verbindungen innerhalb einer Subgruppe hat — aber diese Verbindungen sind oft redundant (hohe Dichte innerhalb der Subgruppe).
-- *Closeness*: Erklärung anhand kurzer Pfadlängen; geeignet, um zu zeigen, wer schnell Informationen zu allen anderen senden/erhalten kann.
-- *Betweenness*: Gut für die Diskussion über Brückenfunktion zwischen Gruppen; wenige Verbindungen, hohe strategische Bedeutung.
-:::
-
-
 ## Was genau macht igraph?
 
 Wie bei anderen Sachen in RStudio auch brauchen wir Pakete, das sind für Netzwerke eben genanntes `igraph` sowie zwei Pakete, um Daten einlesen zu können. Ein weiteres Paket ist [`visNetwork`](https://datastorm-open.github.io/visNetwork/)
