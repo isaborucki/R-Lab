@@ -2,15 +2,15 @@
 title: "Einführung in die Netzwerkanalyse"
 author: Isabelle Borucki
 format:
-  # revealjs:
-  #   theme: solarized
-  #   slide-number: true
-  #   incremental: true
-  #   center: true
-  #   transition: fade
-  #   font-size: 0.7em
-  #   code-fold: true
-  #   code-tools: true
+  revealjs:
+    theme: solarized
+    slide-number: true
+    incremental: true
+    center: true
+    transition: fade
+    font-size: 0.7em
+    code-fold: true
+    code-tools: true
   html:
     toc: true
 execute:
@@ -84,11 +84,49 @@ Assoziative Beziehungen
 -   Zitationsnetzwerke Bsp. [connectedpapers](www.connectedpapers.com)
 -   Molekularstrukturen
 
+## Arten von Netzwerken
+
+-   Gesamtnetzwerke
+
+-   Ego-Netzwerke
+
+## Strukturen von Netzwerken
+
+-   Dichte
+-   Zentralität
+-   Homophilie
+-   Cliquen
+-   Brücken
+-   Komponenten
+
+## Strukturen von Netzwerken
+
+![](images/clipboard-3338007500.png)
+
+## Netzwerke messen
+
+## Übersichtstabelle
+
+| **Zentralitätsmaß** | **Positive Ausprägung** | **Typische Interpretation** | **Netzwerkcharakteristik** |
+|---------------------|-------------------------|------------------------------|-----------------------------|
+| **Degree** | „Local hero“ | Viele direkte Verbindungen, aber oft in einer vom Rest entfernten Teilgruppe | Zahlreiche, aber redundante Verbindungen |
+| **Closeness** | Schlüssel zu anderen Teilen des Netzwerks | Ego ist über viele (kurze) Pfade erreichbar und zentral, aber andere sind ebenfalls gut angebunden | Viele Pfade, zentrale Position, aber nicht exklusiv |
+| **Betweenness** | Zentrale Schnittstelle für Informationsfluss | Wenige direkte Verbindungen, aber entscheidend für die Verbindung verschiedener Gruppen | Selten: Bündelung der Beziehungen weniger Knoten zu allen anderen |
+
+::: notes
+**Sprecher*innen-Notizen:**
+
+- *Degree*: Hervorheben, dass ein "Local hero" viele Verbindungen innerhalb einer Subgruppe hat — aber diese Verbindungen sind oft redundant (hohe Dichte innerhalb der Subgruppe).
+- *Closeness*: Erklärung anhand kurzer Pfadlängen; geeignet, um zu zeigen, wer schnell Informationen zu allen anderen senden/erhalten kann.
+- *Betweenness*: Gut für die Diskussion über Brückenfunktion zwischen Gruppen; wenige Verbindungen, hohe strategische Bedeutung.
+:::
+
+
 ## Was genau macht igraph?
 
 Wie bei anderen Sachen in RStudio auch brauchen wir Pakete, das sind für Netzwerke eben genanntes `igraph` sowie zwei Pakete, um Daten einlesen zu können. Ein weiteres Paket ist [`visNetwork`](https://datastorm-open.github.io/visNetwork/)
 
-```{r setup, include=TRUE}
+```{r setup}
 # Daten einlesen
 library(tidyverse)
 library(readxl)
@@ -238,6 +276,8 @@ plot(nets, vertex.label.dist=1.5)
 ```
 
 Weitere Infos und die Daten gibt es auf GitHub bei [Katya Ognyanova](https://kateto.net/networks-r-igraph) sowie in der [igraph-Dokumentation](https://github.com/igraph/rigraph) bzw. [hier](https://r.igraph.org) ausführlich.
+
+## Wer ist eigentlich zentral?
 
 ## Referenzen
 
