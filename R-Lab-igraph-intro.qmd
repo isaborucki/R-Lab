@@ -64,8 +64,6 @@ Assoziative Beziehungen
 
 -   Gemeinsame Mitgliedschaft, Ko-Autorschaft
 
-## Netzerkanalyse in R: Einführung in Igraph
-
 ## Wozu Netzwerke?
 
 -   Wozu brauchen wir Netzwerke?
@@ -112,6 +110,8 @@ Assoziative Beziehungen
 | **Degree** | „Local hero“ | Viele direkte Verbindungen, aber oft in einer vom Rest entfernten Teilgruppe | Zahlreiche, aber redundante Verbindungen |
 | **Closeness** | Schlüssel zu anderen Teilen des Netzwerks | Ego ist über viele (kurze) Pfade erreichbar und zentral, aber andere sind ebenfalls gut angebunden | Viele Pfade, zentrale Position, aber nicht exklusiv |
 | **Betweenness** | Zentrale Schnittstelle für Informationsfluss | Wenige direkte Verbindungen, aber entscheidend für die Verbindung verschiedener Gruppen | Selten: Bündelung der Beziehungen weniger Knoten zu allen anderen |
+
+# Netzerkanalyse in R: Einführung in Igraph
 
 ## Was genau macht igraph?
 
