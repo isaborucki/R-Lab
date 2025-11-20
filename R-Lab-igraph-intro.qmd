@@ -270,6 +270,78 @@ Weitere Infos und die Daten gibt es auf GitHub bei [Katya Ognyanova](https://kat
 
 ## Wer ist eigentlich zentral?
 
+Zeige die Relationen im Datensatz
+```{r}
+as_data_frame(net, what = "edges")
+```
+
+Identifiziere und lösche loops (Selbstreferenzen)
+
+```{r}
+which_multiple(net, eids = E(net)) # shows which edges are loops
+net <- simplify(net, remove.multiple = FALSE, remove.loops = TRUE)
+E(net) # now shows 45 edges instead of 49
+```
+
+Vereinfache das Aussehen des Plots (Pfeilgröße, keine Labels):
+
+```{r}
+plot(net, edge.arrow.size = .4, vertex.label = NA)
+```
+
+### Zentralitätsmaße
+
+```{r}
+degree(net, mode = "in") # number of edges per node 
+degree(net, mode = "out") # number of edges per node 
+degree(net, mode = "all") # number of edges per node 
+
+closeness(nets, weights = NULL) # closeness centrality
+betweenness(nets) # betweenness centrality
+edge_betweenness(nets) # edge betweenness
+eigen_centrality(nets)$vector # eigenvector centrality
+page_rank(nets)$vector # Google PageRank
+```
+
+Sammle alle Maße in einer Liste:
+
+```{r}
+cent <- list(Degree = degree(nets), 
+             Closeness = closeness(nets), 
+             Betweenness = betweenness(nets), 
+             Eigenvector = eigen_centrality(nets)$vector, 
+             PageRank = page_rank(nets)$vector)
+cent
+```
+
+### Degree Distribution
+
+```{r}
+plot(degree_distribution(net, mode = "in"), log = "xy")
+plot(degree_distribution(net, mode = "in"), log = "x")
+plot(degree_distribution(net, mode = "in"), log = "y")
+plot(degree_distribution(net, mode = "in"), ylog = TRUE, xlog = TRUE)
+
+plot(degree_distribution(net, mode = "out"), log = "xy")
+```
+
+Wer hat den höchsten Degree?
+
+```{r}
+degree <- c(max(degree(net, mode = "in"))) # what does this function do? 
+degree(net, mode = "out")
+max(degree(net, mode = "all"))
+degree # returns vector (6, 7, 13)
+```
+
+### Dichte und Netzwerkplot
+
+```{r}
+edge_density(net) # approx. 18.38% of possible ties are realized
+is_directed(net) # TRUE (as plots already showed)
+```
+
+
 ## Referenzen
 
 Holster, J. D. (n.d.). *Chapter 7 Network Analysis \| Introduction to R for Data Science: A LISA 2020 Guidebook*. Retrieved November 22, 2023, from <https://bookdown.org/jdholster1/idsr/network-analysis.html>
